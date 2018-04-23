@@ -185,8 +185,6 @@ These results indicate that the number of workers is required to be under 30. Fo
 
 -----
 
-# [Privacy Policy](https://tanaikebox.github.io/2018/01/03/privacy-policy/)
-
 <a name="Licence"></a>
 # Licence
 [MIT](LICENCE)
