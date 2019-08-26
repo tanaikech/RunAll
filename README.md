@@ -258,6 +258,8 @@ When `main()` of above script is run, the following result is retrieved by paral
 
 - **When you use this method, please use the values of the string type to the arguments and returned values for the function you want to run. This is due to the specification of Web Apps. Please be careful this.**
 
+- You can see the method for running functions by directly specifying the function names with Web Apps for Google Apps Script at [here](https://gist.github.com/tanaikech/b2e0325a28efe7c609e4688ec22ee22c).
+
 # Limitation of workers
 
 When a function is run by Apps Script API and Web Apps, it is considered that there is the limitation for the number of simultaneous connections. Here, it was measured. For Web Apps, you can see it at [here](https://github.com/tanaikech/taking-advantage-of-Web-Apps-with-google-apps-script#limitationofsimultaneousconnection) and [here](https://stackoverflow.com/a/50033976).
