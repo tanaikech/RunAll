@@ -101,7 +101,7 @@ function RunFunctionsByDoPost(objectThis, objectParams) {
       var a, f, obj, result;
       obj = JSON.parse(e_.postData.contents);
       f = obj["function"] || null;
-      a = obj["arguments"] || null;
+      a = "arguments" in obj ? obj["arguments"] : null;
       result = {};
       if (f) {
         if (f in t_ && typeof t_[f] === "function") {

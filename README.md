@@ -335,8 +335,13 @@ If you have any questions and commissions for me, feel free to tell me.
 
   1. Initial release.
 
-- v1.1.0 (August 26, 2018)
+- v1.1.0 (August 26, 2019)
 
   1. [New method for achieving the parallel processing with Web Apps was added.](#usewebapps)
+
+- v1.1.1 (September 20, 2019)
+
+  1. When the number of `0` was used as the argument, `null` was returned. This bug was removed.
+  1. Coffeescript as the source was updated.
 
 [TOP](#top)
