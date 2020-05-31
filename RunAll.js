@@ -43,11 +43,11 @@ function RunFunctionsByDoPost(objectThis, objectParams) {
           return function(e) {
             return {
               muteHttpExceptions: true,
-              url: _this.url + e.projectId + ":run",
+              url: _this.url + (e.projectId || ScriptApp.getScriptId()) + ":run",
               method: "post",
               contentType: "application/json",
               headers: {
-                Authorization: "Bearer " + e.accessToken
+                Authorization: "Bearer " + (e.accessToken || ScriptApp.getOAuthToken())
               },
               payload: JSON.stringify({
                 "function": e.functionName,

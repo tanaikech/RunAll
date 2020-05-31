@@ -2,6 +2,7 @@
 # v1.0.0 Initial release.
 # v1.1.0 New method for achieving the parallel processing with Web Apps was added.
 # v1.1.1 When the number of `0` was used as the argument, `null` was returned. This bug was removed.
+# v1.1.2 When the access token and project ID are not included in the object, `getOAuthToken()` and `getScriptId()`. By this, an error is removed.
 
 `
 /**
@@ -47,13 +48,13 @@ do(r=@)->
             try
                 reqs = p_.map (e) =>
                     muteHttpExceptions : true
-                    url                : @url + e.projectId + ":run"
+                    url                : @url + (e.projectId or ScriptApp.getScriptId()) + ":run"
                     method             : "post"
                     contentType        : "application/json"
                     headers            :
-                        Authorization: "Bearer " + e.accessToken
+                        Authorization: "Bearer " + (e.accessToken or ScriptApp.getOAuthToken())
                     payload            : JSON.stringify
-                        function   : e.functionName
+                        "function" : e.functionName
                         parameters : e.arguments
                         devMode    : true
 
@@ -61,8 +62,7 @@ do(r=@)->
 
             catch err
                 throw new Error err
-
-            res
+            return res
 
 
         DoWebApps: (p_) ->
@@ -86,8 +86,7 @@ do(r=@)->
 
             catch err
                 throw new Error err
-
-            res
+            return res
 
 
         RunFunctionsByDoPost: (t_, e_) ->

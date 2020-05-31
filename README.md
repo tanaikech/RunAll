@@ -119,17 +119,24 @@ function main() {
   var workers = [
     {
       functionName: "myFunction",
-      arguments: ["request1"]
+      arguments: ["request1"],
     },
     {
       functionName: "myFunction",
-      arguments: ["request2"]
-    }
+      arguments: ["request2"],
+    },
   ];
   var results = RunAll.Do(workers); // Using this library
   Logger.log(results);
 }
 ```
+
+In this case, the object in the request array has the properties as follows.
+
+- `functionName` : The function name for running by this library.
+- `arguments` : Arguments for sending to the function.
+- `accessToken` : Access token for using Apps Script API. This is not mandatory.
+- `projectId` : Project ID of the GAS script. This is not mandatory.
 
 When the installation is fine, you can see the following result.
 
@@ -221,23 +228,23 @@ function main() {
       functionName: "myFunction",
       arguments: "sample parameter 1",
       webAppsURL: url,
-      accessToken: token
+      accessToken: token,
     },
     {
       functionName: "myFunction",
       arguments: "sample parameter 2",
       webAppsURL: url,
-      accessToken: token
+      accessToken: token,
     },
     {
       functionName: "myFunction",
       arguments: "sample parameter 3",
       webAppsURL: url,
-      accessToken: token
-    }
+      accessToken: token,
+    },
   ];
   var res = RunAll.DoWebApps(resource);
-  res.forEach(function(r) {
+  res.forEach(function (r) {
     Logger.log(r.getContentText());
   });
 }
@@ -343,5 +350,9 @@ If you have any questions and commissions for me, feel free to tell me.
 
   1. When the number of `0` was used as the argument, `null` was returned. This bug was removed.
   1. Coffeescript as the source was updated.
+
+- v1.1.2 (May 31, 2020)
+
+  1. When the access token and project ID are not included in the object, `getOAuthToken()` and `getScriptId()`. By this, an error is removed.
 
 [TOP](#top)
